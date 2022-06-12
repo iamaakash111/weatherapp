@@ -4,7 +4,7 @@ const https = require("https");
 
 const app= express();
 
-const key="bdad43cbe754f33fda6964da98af09f0";
+const key="################";
 // ${cityName},${countryName}
 
 app.use(express.static("public"));
@@ -23,7 +23,6 @@ app.post("/",function(req,res){
     https.get(url,function(response){
         response.on("data",function(data){
            const weatherData= JSON.parse(data);
-           console.log(weatherData);
 
            res.render("result",{temparature:weatherData.main.temp, descriptionData:weatherData.weather[0].description}); 
   
